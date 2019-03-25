@@ -7,6 +7,6 @@ Miro: https://realtimeboard.com/welcomeonboard/eHtp2B2DGbpun5fG5gr1nRIDwyaQRfCVg
 
 Trello: https://trello.com/b/VSmTybFB/cookbook
 
-Курсовая: 
+Курсовая: https://docs.google.com/document/d/1UcfgppkMOtx62vYSk3bAXyEaUwfrPSwg2BWFOzzrALE/edit?usp=sharing
 
 ТЗ:
