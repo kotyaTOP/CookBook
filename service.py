@@ -9,6 +9,7 @@ def menu():
 def show():
     @app.route('/dish')
     def dish():
+        i = 1
         return 0
 
     @app.route('/ingredient')
