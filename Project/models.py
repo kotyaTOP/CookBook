@@ -16,3 +16,6 @@ class Dish_Ingredient(mydb.Model):
     __tablename__ = 'DishIngred'
 
 
+class User(mydb.Model):
+    __tablename__ = 'User'
+
