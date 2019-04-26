@@ -1,4 +1,4 @@
-from config import app, mydb
+from Project.config import app, mydb
 
 @app.route('/')
 def menu():
