@@ -1,12 +1,18 @@
-class Dish:
+from app_config import mydb
+
+class Dish(mydb.Model):
+    __tablename__ = 'Dish'
 
 
-class Ingredient:
+class Ingredient(mydb.Model):
+    __tablename__ = 'Ingredient'
 
 
-class Unit:
+class Unit(mydb.Model):
+    __tablename__ = 'Unit'
 
 
-class Dish_Ingredient:
+class Dish_Ingredient(mydb.Model):
+    __tablename__ = 'DishIngred'
 
 
