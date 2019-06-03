@@ -6,9 +6,13 @@
 ### Trello
 [Страница СookBook](https://trello.com/b/VSmTybFB/cookbook)
 
+### Miro
+[Модульная схема](https://miro.com/app/board/o9J_kxhWFeE=/)
 
-Miro: https://miro.com/app/board/o9J_kxhWFeE=/
+### Документация
+* 
+*
+*
 
-Курсовая: https://docs.google.com/document/d/1UcfgppkMOtx62vYSk3bAXyEaUwfrPSwg2BWFOzzrALE/edit
-
-ТЗ: https://docs.google.com/document/d/1SU8qHpotCYoc5FibGBkf_aJ_DQmeP-kMvuFjDyoQY3A/edit
+### Диаграммы
+[Архитектура]()
