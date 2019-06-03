@@ -1,4 +1,4 @@
-from Project.config import mydb
+from app_config import mydb
 
 class Dish(mydb.Model):
     __tablename__ = 'Dish'

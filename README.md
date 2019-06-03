@@ -11,11 +11,13 @@
 
 # Документация
 * [ТЗ](https://github.com/kotyaTOP/CookBook/blob/master/Документы/ТЗ.docx)
-*
-*
+* [Отчет](https://github.com/kotyaTOP/CookBook/blob/master/Документы/Отчет%20о%20курсовом%20проекте.docx)
+* [Курсовая]()
 
 # Диаграммы
 [Архитектура](https://github.com/kotyaTOP/CookBook/tree/master/Диаграммы)
 
 # Видео-демонстрация
+
+# Презентация
 

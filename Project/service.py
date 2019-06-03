@@ -1,40 +1,44 @@
 from Project.config import app, mydb
-from flask import render_template, request, redirect, url_for
-from Project.models import Dish
-
-
 
 @app.route('/')
 def menu():
-    return render_template('./menu.html')
+    return 0
 
 
+@app.route('/show')
+def show():
+    @app.route('/dish')
+    def dish():
+        i = 1
+        return 0
+
+    @app.route('/ingredient')
+    def ingredient():
+        return 0
+
+    @app.route('/dish_ingred')
+    def dish_ingred():
+        return 0
+
+    @app.route('/unit')
+    def unit():
+        return 0
+
+    return 0
 
 
+@app.route('/change_dish')
+def change_table():
+   return 0
 
-@app.route('/change_dish/<id>/<do>', methods=['GET', 'POST'])
-def change_dish(id, do):
-    id = int(id)
 
-    if do == "add":
-        s = Dish()
-    else:
-        s = mydb.session.query(Dish).filter(Dish.id_dish == id).one_or_none()
+@app.route('/search_dish')
+def search_dish():
+    return 0
 
-    form = DishForm(request.form, obj=s)
-
-    if do == "delete":
-        mydb.session.delete(s)
-        mydb.session.flush()
-        return redirect(url_for('dish'))
-
-    if form.button_save.data:
-        form.populate_obj(s)
-        mydb.session.add(s)
-        if s.id_dish != id:
-            return redirect(url_for('dish', id=s.id_dish))
-
-    return render_template('change_dish.html', form=form)
+@app.route('/add_user')
+def add_user():
+    return 0
 
 
 if __name__ == '__main__':
