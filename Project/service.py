@@ -1,4 +1,5 @@
-from Project.config import app, mydb
+# from config import app, mydb
+from CookBook.Project.config import app, mydb
 
 @app.route('/')
 def menu():

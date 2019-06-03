@@ -1,4 +1,5 @@
-from app_config import mydb
+# from app_config import mydb
+from CookBook.Project.config import mydb
 
 class Dish(mydb.Model):
     __tablename__ = 'Dish'
