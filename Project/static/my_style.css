@@ -1,0 +1,156 @@
+table {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+  border-collapse: collapse;
+
+  color: #686461;
+}
+caption {
+  padding: 10px;
+  color: white;
+  background: #8FD4C1;
+  font-size: 18px;
+  text-align: left;
+  font-weight: bold;
+}
+th {
+  border-bottom: 3px solid #B9B29F;
+  padding: 10px;
+  text-align: left;
+}
+td {
+  padding: 10px;
+}
+tr:nth-child(odd) {
+  background: white;
+}
+tr:nth-child(even) {
+  background: #E8E6D1;
+}
+
+tr:hover td {background: #e8edff;}
+
+a{
+text-decoration: none;
+}
+
+a:visited {
+color: #9932CC;
+text-decoration: none;
+}
+a:active {
+color: #9932CC;
+text-decoration: none;
+}
+
+.a1 {
+display: inline-block;
+padding: 15px 20px;
+background: #e8edff;
+position: relative;
+font-size: 16px;
+}
+.a1:hover {
+box-shadow: none;
+top: 1px;
+left: 1px;
+}
+
+.button {
+background-color: #e8edff;;
+border: 1px solid #e8edff;;
+color: #00838f;
+/*text-shadow: 1px 1px 2px #000;*/
+font-family: Arial;
+font-size: 13pt;
+padding: 12px 28px;
+width: 170px;
+text-align: center;
+}
+
+.button:hover {
+box-shadow: 0 10px 13px 0 rgba(0,0,0,0.24), 0 15px 30px 0 rgba(0,0,0,0.19);
+}
+
+  .button_add {
+background-color: #98C793;
+border: 1px solid #98C793;
+color: white;
+
+/*text-shadow: 1px 1px 2px #000;*/
+font-family: Arial;
+font-size: 12pt;
+padding: 10px;
+width: 200px;
+text-align: center;
+}
+
+.button_add:hover {
+background: #A8E4A0;
+border: 1px solid #A8E4A0;
+}
+.body1 {
+margin-left: 150px;
+}
+
+.header-h1 h1 {
+    position: relative;
+    padding-bottom: .5rem;
+    font-size: 1.5rem;
+    font-family: Arial;
+    text-transform: uppercase;
+    margin-left: 35%;
+    color: #00838f;
+  }
+  .header-h1 h1::before {
+    content: "";
+    font-family: Arial;
+    position: absolute;
+    border-bottom: 2px solid #00838f;
+    bottom: .25rem;
+    width: 50%;
+    transform: translateX(-50%);
+  }
+  .header-h1 h1::after {
+    content: "";
+    font-family: Arial;
+    position: absolute;
+    border-bottom: 2px solid #00838f;
+    bottom: 0;
+    width: 50%;
+    transform: translateX(-50%);
+  }
+
+
+.header-h2 {
+    position: relative;
+    margin-bottom: 1rem;
+    font-family: Arial;
+
+  }
+  .header-h2 h2 {
+  font-family: Arial;
+    display: inline-block;
+    background: #fff;
+    margin-bottom: 0;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    color: #00838f;
+  }
+
+
+.header-h3 h3 {
+text-align: left;
+font-family: Arial;
+color: #00838f;
+}
+.header-h3 h3:before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 5px);
+  left: 0;
+  right: 0;
+  height: 6px;
+  z-index: -1;
+}
