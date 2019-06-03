@@ -3,16 +3,16 @@
   - kotyaTOP - Боровкова Е.С. 4гр
   - kriskamumu - Крылова К.И. 4 гр
   
-### Trello
+# Trello
 [Страница СookBook](https://trello.com/b/VSmTybFB/cookbook)
 
-### Miro
+# Miro
 [Модульная схема](https://miro.com/app/board/o9J_kxhWFeE=/)
 
-### Документация
+# Документация
 * 
 *
 *
 
-### Диаграммы
+# Диаграммы
 [Архитектура]()
