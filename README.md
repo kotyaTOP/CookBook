@@ -18,7 +18,7 @@
 [Архитектура](https://github.com/kotyaTOP/CookBook/tree/master/Диаграммы)
 
 # Видео-демонстрация
-https://disk.yandex.ru/client/disk?idApp=client&display=normal&groupBy=none&order=1&sort=name&view=icons&typeClustering=geo&action=null&idAlbum=undefined&dialog=slider&idDialog=%2Fdisk%2FДемо.wmv
+[Демо](https://disk.yandex.ru/client/disk?idApp=client&display=normal&groupBy=none&order=1&sort=name&view=icons&typeClustering=geo&action=null&idAlbum=undefined&dialog=slider&idDialog=%2Fdisk%2FДемо.wmv)
 
 # Презентация
 [Презентация](https://github.com/kotyaTOP/CookBook/blob/master/Документы/Презентация%20CookBook.pptx)
