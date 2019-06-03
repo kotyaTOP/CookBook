@@ -1,10 +1,21 @@
 # CookBook
-Боровкова Екатерина Сергеевна и Крылова Кристина Игоревна 4гр
 
-Trello: https://trello.com/b/VSmTybFB/cookbook
+  - kotyaTOP - Боровкова Е.С. 4гр
+  - kriskamumu - Крылова К.И. 4 гр
+  
+# Trello
+[Страница СookBook](https://trello.com/b/VSmTybFB/cookbook)
 
-Miro: https://miro.com/app/board/o9J_kxhWFeE=/
+# Miro
+[Модульная схема](https://miro.com/app/board/o9J_kxhWFeE=/)
 
-Курсовая: https://docs.google.com/document/d/1UcfgppkMOtx62vYSk3bAXyEaUwfrPSwg2BWFOzzrALE/edit
+# Документация
+* 
+*
+*
 
-ТЗ: https://docs.google.com/document/d/1SU8qHpotCYoc5FibGBkf_aJ_DQmeP-kMvuFjDyoQY3A/edit
+# Диаграммы
+[Архитектура]()
+
+# Видео-демонстрация
+
