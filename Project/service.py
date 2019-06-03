@@ -32,6 +32,56 @@ def change_dish_ingred(id, do):
 
     return render_template('change_dish_ingred.html', form=form)
 
+
+@app.route('/change_ingred/<id>/<do>', methods=['GET', 'POST'])
+def change_ingred(id, do):
+    id = int(id)
+
+    if do == "add":
+        s = Ingredient()
+    else:
+        s = mydb.session.query(Ingredient).filter(Ingredient.id_ingred == id).one_or_none()
+
+    form = IngredForm(request.form, obj=s)
+
+    if do == "delete":
+        mydb.session.delete(s)
+        mydb.session.flush()
+        return redirect(url_for('ingredient'))
+
+    if form.button_save.data:
+        form.populate_obj(s)
+        mydb.session.add(s)
+        if s.id_ingred != id:
+            return redirect(url_for('ingredient', id=s.id_ingred))
+
+    return render_template('change_ingred.html', form=form)
+
+
+@app.route('/change_unit/<id>/<do>', methods=['GET', 'POST'])
+def change_unit(id, do):
+    id = int(id)
+
+    if do == "add":
+        s = Unit()
+    else:
+        s = mydb.session.query(Unit).filter(Unit.id_unit == id).one_or_none()
+
+    form = UnitForm(request.form, obj=s)
+
+    if do == "delete":
+        mydb.session.delete(s)
+        mydb.session.flush()
+        return redirect(url_for('unit'))
+
+    if form.button_save.data:
+        form.populate_obj(s)
+        mydb.session.add(s)
+        if s.id_unit != id:
+            return redirect(url_for('unit', id=s.id_unit))
+
+    return render_template('change_unit.html', form=form)
+
 if __name__ == '__main__':
     metadata = mydb.metadata
     metadata.create_all(mydb.engine)
