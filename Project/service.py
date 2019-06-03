@@ -140,6 +140,11 @@ def ingredient():
         ingreds = q.all()
     return render_template('ingredient.html', ingred=ingreds, form=form)
 
+@app.route('/unit')
+def unit():
+    units = mydb.session.query(Unit).all()
+    return render_template('unit.html', units=units)
+
 
 @app.route('/change_dish_ingred/<id>/<do>', methods=['GET', 'POST'])
 def change_dish_ingred(id, do):
@@ -164,6 +169,118 @@ def change_dish_ingred(id, do):
             return redirect(url_for('dish_ingred', id=s.id_dish_ingred))
 
     return render_template('change_dish_ingred.html', form=form)
+
+@app.route('/main_page')
+def main_page():
+    form = FormSearch(request.args)
+    dishes = mydb.session.query(Dish_Ingredient).all()
+
+    if form.button_search1.data:
+        q = mydb.session.query(Dish)
+        if form.dish_name.data != '':
+            q = q.filter(Dish.dish_name == form.dish_name.data)
+        dish = q.all()
+        dish_id = [elem.id_dish for elem in dish]
+        dishes = get_dish_ingred(dish_id)
+
+
+    ingreds = [] #список выбранных для поиска ингредиентов
+    missing_ingreds_dict = {}
+    if form.button_search3.data:
+        for f_ingred in form.ingreds:
+            ingred = f_ingred.data
+            if ingred not in ingreds:
+                ingreds.append(ingred)
+        if len(ingreds):
+            missing_ingreds_dict = get_missing_ingreds_for_all(ingreds)
+            dishes = get_dish_ingred(get_important_dishes(missing_ingreds_dict))
+            sort_dishes_by_missing_ingreds(dishes, missing_ingreds_dict)
+
+    dishes_id = []
+    new_dishes = []
+    ingreds = {}
+    for dish in dishes:
+        if not dishes_id.__contains__(dish.id_dish):
+            new_dishes.append(dish)
+            dishes_id.append(dish.id_dish)
+        if not ingreds.keys().__contains__(dish.id_dish):
+            ingreds[dish.id_dish] = []
+
+        ingreds[dish.id_dish].append(str(dish.ingred.ingred_name) + ' - ' + str(dish.sum) + str(dish.unit.unit_name))
+
+
+
+    if form.button_search2_add.data:
+        form.ingreds.append_entry()
+        return render_template('main.html', dish=new_dishes, ingreds=ingreds, form=form, miss_ingreds=missing_ingreds_dict)
+
+    if form.button_search2_remove.data:
+        form.ingreds.pop_entry()
+        return render_template('main.html', dish=new_dishes, ingreds=ingreds, form=form, miss_ingreds=missing_ingreds_dict)
+
+
+    return render_template('main.html', dish=new_dishes, ingreds=ingreds, form=form, miss_ingreds=missing_ingreds_dict)
+
+
+def get_important_dishes(miss_dict):
+    dishes = mydb.session.query(Dish)
+    new_dishes = []
+    for dish in dishes:
+        ingreds = get_ingreds_for_dish(dish.id_dish)
+        if (len(miss_dict[dish.id_dish]) < len(ingreds)):
+            new_dishes.append(dish.id_dish)
+    return new_dishes
+
+
+def sort_dishes_by_missing_ingreds(all_dish, missing_dict: dict): #возвращает список блюд_ингредиентов по возрастанию недостающих блюд
+    for i in range(len(all_dish) - 1):
+        for j in range(len(all_dish) - i - 1):
+            if len(missing_dict[all_dish[j].id_dish]) > len(missing_dict[all_dish[j + 1].id_dish]):
+                all_dish[j], all_dish[j + 1] = all_dish[j + 1], all_dish[j]
+
+
+
+def get_missing_ingreds(dish_id: int, ingreds: list): #получает список ингредиентов (id), которых не достает до нужного списка
+    dish_ingreds = get_ingreds_for_dish(dish_id)
+    missing_ingreds = [elem.ingred_name for elem in dish_ingreds if elem not in ingreds ]
+    return missing_ingreds
+
+def get_missing_ingreds_for_all(ingreds: list): #получает словарь, где ключ - блюдо (id), значение - список недостающх ингредиентов (id)
+    dishes = mydb.session.query(Dish)
+    missing_ingreds_dict = {}
+    for dish in dishes:
+        missing_ingreds_dict[dish.id_dish] = get_missing_ingreds(dish.id_dish, ingreds)
+    return missing_ingreds_dict
+
+def get_ingreds_for_dish(dish_id: int):
+    all_dishes = mydb.session.query(Dish_Ingredient)
+    dishes = mydb.session.query(Dish)
+    ingreds_dict = get_ingreds_for_dishes(dishes, all_dishes)
+    return ingreds_dict[dish_id]
+
+def get_ingreds_for_dishes(dishes: list, dishes_ingreds: list): #формирует словарь,где ключ - блюдо(id), значение - список его ингредиентов (id)
+    ingreds_dict = {}
+    for dish in dishes:
+        if not ingreds_dict.keys().__contains__(dish):
+            ingreds_dict[dish.id_dish] = []
+    for dish in dishes_ingreds:
+        ingreds_dict[dish.dish.id_dish].append(dish.ingred)
+    return ingreds_dict
+
+def get_dish_ingred(dishes_id: list):   #получает по списку блюд список всех блюд_ингредиентов
+    new_dish_ingreds = []
+    dish_ingreds = mydb.session.query(Dish_Ingredient).all()
+
+    for elem in dish_ingreds:
+        if elem.id_dish in dishes_id:
+            new_dish_ingreds.append(elem)
+    return new_dish_ingreds
+
+def contains(minlist: list, list: list):
+    for elem in minlist:
+        if not elem in list:
+            return False
+    return True
 
 
 if __name__ == '__main__':
