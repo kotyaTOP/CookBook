@@ -10,7 +10,7 @@
 [Модульная схема](https://miro.com/app/board/o9J_kxhWFeE=/)
 
 # Документация
-* 
+* [ТЗ](https://github.com/kotyaTOP/CookBook/blob/master/Документы/ТЗ.docx)
 *
 *
 
