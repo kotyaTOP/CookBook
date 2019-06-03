@@ -12,12 +12,13 @@
 # Документация
 * [ТЗ](https://github.com/kotyaTOP/CookBook/blob/master/Документы/ТЗ.docx)
 * [Отчет](https://github.com/kotyaTOP/CookBook/blob/master/Документы/Отчет%20о%20курсовом%20проекте.docx)
-* [Курсовая]()
+* [Курсовая](https://github.com/kotyaTOP/CookBook/blob/master/Документы/Курсовая%20CookBook.pdf)
 
 # Диаграммы
 [Архитектура](https://github.com/kotyaTOP/CookBook/tree/master/Диаграммы)
 
 # Видео-демонстрация
+[Демо](https://disk.yandex.ru/client/disk?idApp=client&display=normal&groupBy=none&order=1&sort=name&view=icons&typeClustering=geo&action=null&idAlbum=undefined&dialog=slider&idDialog=%2Fdisk%2FДемо.wmv)
 
 # Презентация
-
+[Презентация](https://github.com/kotyaTOP/CookBook/blob/master/Документы/Презентация%20CookBook.pptx)
