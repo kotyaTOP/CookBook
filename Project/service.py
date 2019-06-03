@@ -1,8 +1,8 @@
 
-from Project.config import app, mydb
+from CookBook.Project.config import app, mydb
 from flask import render_template, request, redirect, url_for
-from Project.models import Dish, Ingredient, Unit, Dish_Ingredient
-from Project.forms import DishForm, IngredForm, UnitForm, DishIngredForm, FormSearch
+from CookBook.Project.models import Dish, Ingredient, Unit, Dish_Ingredient
+from CookBook.Project.forms import DishForm, IngredForm, UnitForm, DishIngredForm, FormSearch
 
 @app.route('/')
 def menu():
@@ -81,6 +81,19 @@ def change_unit(id, do):
             return redirect(url_for('unit', id=s.id_unit))
 
     return render_template('change_unit.html', form=form)
+
+@app.route('/dish')
+def dish():
+    dishes = mydb.session.query(Dish).all()
+    form = FormSearch(request.args)
+    if form.button_search1.data:
+        q = mydb.session.query(Dish)
+        if form.dish_name.data != '':
+            q = q.filter(Dish.dish_name == form.dish_name.data)
+        dishes = q.all()
+
+    return render_template('dish.html', dishes=dishes, form=form)
+
 
 if __name__ == '__main__':
     metadata = mydb.metadata
